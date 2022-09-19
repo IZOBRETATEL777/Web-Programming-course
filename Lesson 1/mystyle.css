@@ -1,0 +1,11 @@
+h1 {
+    background-color: yellow; font-size: 44px;
+}
+
+div:first-child {
+    background-color: aqua;
+}
+
+div:nth-child(2) {
+    background-color: red;
+}
