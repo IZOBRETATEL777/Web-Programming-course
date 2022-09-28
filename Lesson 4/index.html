@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js"></script>
+
+    <style>
+        .mystyle {
+            background-color: aqua;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<p onclick="myclick()" id="myelm">Click me</p>
+<p id="myelm2">Click me again</p>
+<button onclick="addStyle()" >Add</button>
+<button onclick="removeStyle()">Remove</button>
+<button onclick="changeStyle()">Change</button>
+
+<form action="#" name="frm" method="POST">
+    <p id="myle">Let use DOM</p>
+    <br><br>
+    <input name="nname" type="text" id="name">
+    <br><br>
+    <input name="nnumber" type="number" id="age">
+    <br><br>
+    <input name="npassword" type="password" id="password">
+    <br><br>
+    <select name="teams" id="teams">
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+        <option value="moderator">Moderator</option>
+    </select>
+    <input type="radio" name="gender" id="">male
+    <input type="radio" name="gender" id="">female
+
+</form>
+<button id="get" class="buttons">GET</button>
+<script src="dom.js"></script>
+</body>
+</html>
