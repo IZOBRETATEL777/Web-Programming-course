@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <form action="#" name="frm">
+        <h1>ORDER CARD</h1>
+        <label for="tyoe">Types of Cards:</label>
+        <select name="type" onclick="updateCost()">
+          <option value="2">VisaCard</option>
+          <option value="3">MasterCard</option>
+          <option value="1">Electron</option>
+        </select>
+        <br><br>
+        <input type="radio" name="tip" value="10" onclick="updateCost()"> Classic
+        <input type="radio" name="tip" value="20" onclick="updateCost()"> Gold
+        <input type="radio" name="tip" value="30" onclick="updateCost()"> Platinum
+        <br> <br>
+        <label for="">Extra Services</label>
+        <br>
+        <input type="checkbox" name="serv0" value="10.00" onclick="updateCost()"> Mobile Banking
+        <input type="checkbox" name="serv1" value="3.50" onclick="updateCost()"> SMS Banking
+        <br> <br>
+
+        <label>Cost: </label>
+        <label id="total"></label>
+      </form>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
