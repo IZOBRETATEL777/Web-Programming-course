@@ -1,36 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
-    <div>
-        <form method="post", action="">
-            <div id="usernameForm">
-                <p id="usernameError" style="color: red;"></p>
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="enter username">
-            </div>
-            <div id="passwordForm">
-                <p id="passwordError" style="color: red;"></p>
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="enter password">
-            </div>
-            <div id="confirmPasswordForm">
-                <p id="confirmPasswordError" style="color: red;"></p>
-                <label for="confirmPassword">Confirm</label>
-                <input type="password" id="confirmPassword" placeholder="confirm password">
-            </div>
-            <input type="button" value="submit" onclick="handle()">
-            <p id="success"></p>
-        </form>
-    </div>
-    <script src="script.js"></script>
-</body>
+    <p id="text">Within the function, we create a new object for the task and add the properties I mentioned earlier. The text property is set to the function argument, checked is initialised to false, and id is initialised to the number of milliseconds elapsed since January 1, 1970. This id will be unique for each todo item unless you can add more than one task in a millisecond, which I don’t think is possible.</p>
 
+    <div id="container">
+        <button id="plus"> + </button>
+        <button id="minus"> - </button>
+    </div>
+    <div id="text2"></div>
+    <script src="app.js"></script>
+</body>
 </html>
+

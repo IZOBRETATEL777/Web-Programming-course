@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <form method="post", action="">
+            <div id="usernameForm">
+                <p id="usernameError" style="color: red;"></p>
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="enter username">
+            </div>
+            <div id="passwordForm">
+                <p id="passwordError" style="color: red;"></p>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="enter password">
+            </div>
+            <div id="confirmPasswordForm">
+                <p id="confirmPasswordError" style="color: red;"></p>
+                <label for="confirmPassword">Confirm</label>
+                <input type="password" id="confirmPassword" placeholder="confirm password">
+            </div>
+            <input type="button" value="submit" onclick="handle()">
+            <p id="success"></p>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
