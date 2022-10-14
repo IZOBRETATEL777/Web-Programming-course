@@ -1,0 +1,23 @@
+[{
+    "id": 1,
+    "name": "ad soyad",
+    "company": "Turkish Airlines",
+    "phone": "950-90-13-12"
+},
+
+{
+    "id": 2,
+    "name": "ad soyad 2",
+    "company": "Pegasus",
+    "phone": "950-20-23-12"
+},
+
+{
+    "id": 3,
+    "name": "ad soyad 3",
+    "company": "Anadolu Airlines",
+    "phone": "950-10-14-12"
+}
+
+
+]
