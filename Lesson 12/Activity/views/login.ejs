@@ -1,0 +1,36 @@
+<html>
+    <!-- login form -->
+    <head>
+        <title>Simple Form. Send data to MySQL database</title>
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+        <link rel="stylesheet" href="../public/css/style.css">
+    </head>
+    <body>
+        <main class="container">
+            <hr>
+            <h1> Login </h1>
+            <% if(message){ %>
+                <div class="success"> 
+                    <p> <%= message %> </p>
+                </div>
+            <% } %>
+            <% if(valid){ %>
+                <div class="error"> 
+                    <% valid.forEach( (elm) => { %>
+                        <p> <%= elm.msg %> </p>
+                    <% }) %>
+                </div>
+            <% } %>
+            <form action="/login" method="POST">
+                <fieldset>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" >
+                    <br>
+                    <label for="password">Password</label>
+                    <input type="password" name="password">
+                    <br><br>
+                    <input type="submit" value="LOGIN" class="secondary outline">
+                </fieldset>
+            </form>
+        </main>
+</html>

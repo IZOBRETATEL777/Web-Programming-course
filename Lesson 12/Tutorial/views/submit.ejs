@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Simple Form. Send data to MySQL database</title>
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+        <link rel="stylesheet" href="../public/css/style.css">
+    </head>
+    <body>
+        <main class="container">
+            <a href="/" role="button" class="secondary">List of Profiles</a>
+            <hr>
+            <h1> Posting data to database </h1>
+            <% if(message){ %>
+                <div class="success"> 
+                    <p> <%= message %> </p>
+                </div>
+            <% } %>
+            <% if(valid){ %>
+                <div class="error"> 
+                    <% valid.forEach( (elm) => { %>
+                        <p> <%= elm.msg %> </p>
+                    <% }) %>
+                </div>
+            <% } %>
+            <form action="/submit" method="POST">
+                <fieldset>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" >
+                    <br>
+                    <label for="email">Email</label>
+                    <input type="text" name="email" >
+                    <br>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" >
+                    <br>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" >
+                    <br><br>
+                    <input type="submit" value="CREATE PROFILE" class="secondary outline">
+                </fieldset>
+            </form>
+        </main>
+    </body>
+</html>
