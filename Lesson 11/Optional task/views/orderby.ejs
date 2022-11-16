@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Exam: Single Page App</title>
+    <style>
+      .selected{ background-color: yellow }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <p>&nbsp;</p>
+        <h2 class="display-4">Exam: Single Page App</h2>
+        <p class="lead">Subtask-1: `Server side JS`. Click on table columns, to order USA states by different values</p>
+        <p class="lead">Subtask-2: `Client side JS`. Click or Dblclick on table rows, to change bg colors and delete rows</p>
+        <hr>
+          <% if(states.length > 0) { %>             
+            <form action="/" method="POST">
+              <table id="table" class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col"><button type="submit" class="btn btn-dark" disabled># NUM</button></th>
+                      <th scope="col"><button type="submit" class="btn btn-dark" name="order" value="name">STATES NAMES</button></th>
+                      <th scope="col"><button type="submit" class="btn btn-dark" name="order" value="join_year">JOIN YEAR</button></th>
+                      <th scope="col"><button type="submit" class="btn btn-dark" name="order" value="population">POPULATION</button></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <% states.forEach(st => { %> 
+                          <tr id="alldata">
+                              <th scope="row" id="rowdel"><%= st.id %></th>
+                              <td class="rowdel"><%= st.name %></td>
+                              <td class="rowdel"><%= st.join_year %></td>
+                              <td class="rowdel"><%= st.population %></td>
+                          </tr>
+                      <% }) %> 
+                  </tbody>
+              </table>
+            </form> 
+          <% } %>
+    </div>
+
+  <script>
+    // function, to delete table rows on click, only client side js
+    function deleteRow(){               
+      var index,
+          table = document.getElementById("table");
+            
+      for(var i = 1; i < table.rows.length; i++){
+        // - `onclick` function
+        table.rows[i].onclick = function(){
+          // get the selected row index: (this.rowIndex);
+          this.classList.toggle("selected");
+        };
+        // - `ondblclick` function
+        table.rows[i].ondblclick = function(){
+          setTimeout( () => { 
+            this.remove(); }, 
+          2000);   
+        }
+      }               
+    }
+    deleteRow();
+  </script>
+
+</body>
+</html>

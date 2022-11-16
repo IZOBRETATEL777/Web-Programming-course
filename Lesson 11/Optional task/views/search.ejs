@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <title>Exam: Single Page App</title>
+  <style>
+    .selected {
+      background-color: yellow
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <p>&nbsp;</p>
+    <h2 class="display-4">Single Page App (Search/Delete)</h2>
+    <p class="lead">Select search `item` and write your `search keyword`</p>
+    <hr>
+    <% if(error){ %>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+      <% } %>
+        <form action="/" method="POST">
+          <div class="row g-2">
+            <div class="col-md">
+              <label for="search" class="form-label">Enter your keyword:</label>
+              <input type="search" id="search" name="search" class="form-control" placeholder="search...">
+            </div>
+            <div class="col-md">
+              <label for="item" class="form-label">Select search item:</label>
+              <select class="form-select" id="item" name="item">
+                <option value="name">Name</option>
+                <option value="join_year">Join Year</option>
+                <option value="population">Population</option>
+              </select>
+            </div>
+          </div>
+          <p></p>
+          <button type="submit" class="btn btn-dark" name="searchbut">SEARCH</button>
+          <p>&nbsp;</p>
+        </form>
+        <% if(searchres.length> 0) { %>
+          <div class="alert alert-info" role="alert">
+            <%= searchres.length %> records found during search.
+          </div>
+          <table id="table" class="table">
+            <thead>
+              <tr>
+                <th scope="col"># NUM</th>
+                <th scope="col">STATES NAMES</th>
+                <th scope="col">JOIN YEAR</th>
+                <th scope="col">POPULATION</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% searchres.forEach(st=> { %>
+                <tr id="<%= st.id %>">
+                  <th scope="row" id="rowdel">
+                    <%= st.id %>
+                  </th>
+                  <td class="rowdel">
+                    <%= st.name %>
+                  </td>
+                  <td class="rowdel">
+                    <%= st.join_year %>
+                  </td>
+                  <td class="rowdel">
+                    <%= st.population %>
+                  </td>
+                  <td class="rowdel">
+                    <form action="/" method="POST">
+                      <input type="hidden" name='id' value=<%=st.id %> >
+                      <button type="submit" class="btn btn-danger" name="del">DEL</button>
+                    </form>
+                  </td>
+                  <td class="rowdel">
+                    <button class="btn btn-info name=" type="submit" onclick="editRow(<%= st.id %>)">EDIT</button>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+          <% }else{ %>
+            <div class="alert alert-info" role="alert">
+              No records found during search.
+            </div>
+            <% } %>
+  </div>
+
+  <!-- <script>
+    // function, to delete table rows on click, only client side js
+    function deleteRow(){               
+      var index,
+          table = document.getElementById("table");
+            
+      for(var i = 1; i < table.rows.length; i++){
+        // - `onclick` function
+        table.rows[i].onclick = function(){
+          // get the selected row index: (this.rowIndex);
+          this.classList.toggle("selected");
+        };
+        // - `ondblclick` function
+        table.rows[i].ondblclick = function(){
+          setTimeout( () => { 
+            this.remove(); }, 
+          2000);   
+        }
+      }               
+    }
+    deleteRow();
+  </script> -->
+
+  <script>
+    function editRow(idx) {
+
+      var row = document.getElementById(idx);
+      var name = row.cells[1].innerText;
+      var year = row.cells[2].innerText;
+      var pop = row.cells[3].innerText;
+
+
+      var newName = prompt("Enter new name", name);
+      var newYear = prompt("Enter new year", year);
+      var newPop = prompt("Enter new population", pop);
+      
+      const data = {
+          edit: true,
+          id: idx,
+          name: newName,
+          join_year: newYear,
+          population: newPop
+        };
+      
+      console.log(data);
+      fetch('/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          },
+          body: JSON.stringify(data)
+        })
+        .then(location.reload())
+      
+    }
+  </script>
+</body>
+
+</html>

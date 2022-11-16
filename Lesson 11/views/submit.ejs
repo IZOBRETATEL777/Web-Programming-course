@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Simple Form. Send data to MySQL database</title>
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    </head>
+    <body>
+        <main class="container">
+            <a href="/" role="button" class="secondary">List of Profiles</a>
+            <hr>
+            <h1> Posting data to database </h1>
+            <% if(message){ %>
+                <h2> <%= message %> </h2>
+            <% } %>
+            <form action="/submit" method="POST">
+                <fieldset>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" >
+                    <br>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" >
+                    <br>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" >
+                    <br><br>
+                    <input type="submit" value="CREATE PROFILE" class="secondary outline">
+                </fieldset>
+            </form>
+        </main>
+    </body>
+</html>
