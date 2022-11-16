@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/cars" method="POST">
+        <input type="text" name="Brand" placeholder="BRAND">
+        <input type="text" name="Model" placeholder="MODEL">
+        <input type="submit" value="Add Car">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Brand</th>
+                <th>Model</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each cars}}
+            <tr>
+                <td>{{this.carId}}</td>
+                <td>{{this.brand}}</td>
+                <td>{{this.model}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+</body>
+</html>
